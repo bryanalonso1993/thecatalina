@@ -6,33 +6,22 @@
     {{> navbar}}
     <br>
     <div class="container" style="margin-top: 3em;margin-bottom:3em">
-        <form action="/" method="POST">
+        <form action="/login" method="POST">
             <div class="form-group row">
-                <label for="inputEmail3" class="col-sm-2 col-form-label custom-letter" >USERNAME</label>
+                <label for="USERNAME" class="col-sm-2 col-form-label custom-letter">USERNAME</label>
                 <div class="col-sm-10">
-                    <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+                    <input type="email" name="USERNAME" class="form-control" id="USERNAME" placeholder="Email">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="inputPassword3" class="col-sm-2 col-form-label custom-letter" >PASSWORD</label>
+                <label for="PASSWORD" class="col-sm-2 col-form-label custom-letter">PASSWORD</label>
                 <div class="col-sm-10">
-                    <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                </div>
-            </div>
-            <div class="form-group row">
-                <div class="col-sm-2">Checkbox</div>
-                <div class="col-sm-10">
-                    <div class="form-check">
-                        <input class="form-check-input" type="checkbox" id="gridCheck1">
-                        <label class="form-check-label" for="gridCheck1">
-                            Example checkbox
-                        </label>
-                    </div>
+                    <input type="password" name="PASSWORD" class="form-control" id="PASSWORD" placeholder="Password">
                 </div>
             </div>
             <div class="form-group row">
                 <div class="col-sm-10">
-                    <button type="submit" class="btn btn-primary">Sign in</button>
+                    <button type="submit" class="btn btn-dark">Sign in</button>
                 </div>
             </div>
         </form>

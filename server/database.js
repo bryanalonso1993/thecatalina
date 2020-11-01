@@ -1,25 +1,20 @@
 const mysql = require('mysql');
-const {} = require('util')
-const pool = mysql.createPool();
+const paramAuth = require('./keys');
+let connection = mysql.createConnection(paramAuth);
 
-
-pool.getConnection((err,connection) => {
+connection.connect( (err)=> {
     if (err){
-        if (err.code === 'PROTOCOL_CONNECTION_LOST'){
-            console.error('DATABASE CONNECTION WAS CLOSED');
-        }
-        if (err.code === 'ER_CON_COUNT_ERROR'){
-            console.error('DATABASE HAS TO MANY CONNECTIONS');
-        }
-        if (err.code === 'ECONNREFUSED') {
-            console.log('DATABASE CONNECTION WAS REFUSED');
-        }
+        console.error('error connection',err.stack);
+        return;
     }
-    if (connection) connection.release();
-    console.log('DB is connected');
-    return;
-} );
+    //console.log('connected as id ' + connection.threadId);
+    return connection;
+});
+// connection.query('SELECT * FROM enlaces limit 2', (err,rows, fields)=> {
+//     if (err) throw err;
+//     console.log('The solution is',rows[0]);
+// });
 
-module.exports = pool;
+//connection.end();
 
-
+module.exports = connection;
